@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bakery</title>
+
+    <style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        background: linear-gradient(135deg, #7ea6c7, #d7dbe3, #e6c7a5);
+        background-size: cover;
+        font-family: Arial, sans-serif;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-items {
+        display: flex;
+        list-style: none;
+        gap: 60px;
+        margin-right: 60px;
+    }
+
+    .nav-items a {
+        border: 1px solid black;
+        padding: 8px 15px;
+        transition: transform 0.3s ease;
+        border-radius: 15px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+
+    .nav-items a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .topbar {
+        font-family: "Lucida Handwriting";
+        border: 1px solid black;
+        width: 80%;
+        height: 100px;
+        border-radius: 20px;
+        margin-top: 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-left: 30px;
+    }
+
+    h1 {
+        font-family: "Lucida Handwriting";
+        font-size: 42px;
+        text-align: center;
+    }
+
+    .header h1 {
+        margin-left: 40px;
+    }
+
+    p {
+        font-family: "Lucida Handwriting";
+        text-align: center;
+    }
+
+    .box {
+        width: 700px;
+        padding: 30px;
+        border: 2px solid black;
+        border-radius: 15px;
+        margin-top: 20px;
+        background: rgba(255,255,255,0.2);
+    }
+
+    .box:hover {
+        transform: scale(1.02);
+        transition: 0.3s;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .order-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-family: "Lucida Handwriting";
+    }
+
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #aaa;
+        font-size: 14px;
+    }
+
+    .order-form textarea {
+        height: 70px;
+        resize: none;
+    }
+
+    .addons {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .order-btn {
+        font-family: "Lucida Handwriting";
+        margin-top: 15px;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: #e6c7a5;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .order-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    </style>
+
+</head>
+
+<body>
+    <div class="topbar">
+        <h2>Jonjon's Bakery</h2>
+        <ul class="nav-items">
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </div>
+    <div>
+        <i><h1>Order Details</h1></i>
+        <p>Complete your information to secure your order !</p>
+    </div>
+    <div class="container">
+        <div class="box">
+            <form class="order-form">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name">
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter phone number">
+
+            <label>Select Cake Flavor</label>
+                <select>
+                <option>Raspberries</option>
+                <option>Blackberries</option>
+                <option>Cherries</option>
+            </select>
+            <label>Toppings</label>
+                <select>
+                <option>None</option>
+                <option>Sprinkles</option>
+                <option>Pearls</option>
+                <option>Fresh Fruits</option>
+            </select>
+            <label>Custom Cake Topper (Name / Age / Letter)</label>
+                <input type="text" placeholder="Example: Happy 18th Anna">
+                <label>Add-ons</label>
+            <div class="addons">
+                <label><input type="checkbox"> Chocolate Ganache Drip</label>
+                <label><input type="checkbox"> Chocolate Shavings</label>
+                <label><input type="checkbox"> Halves</label>
+                <label><input type="checkbox"> Cream Cheese Mousse</label>
+                <label><input type="checkbox"> Whipped Cream & Jam</label>
+            </div>
+            <label>Delivery Date</label>
+            <input type="date">
+
+            <label>Additional Notes</label>
+            <textarea placeholder="Write your additional requests..."></textarea>
+            
+            <button class="order-btn" type="button" onclick="window.location.href='cakegallery.html'">Confirm Order</button>
+            </form>
+        </div>  
+    </div>
+</body>
+
+</html>
