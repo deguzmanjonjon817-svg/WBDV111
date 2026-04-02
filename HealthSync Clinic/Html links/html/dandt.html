@@ -1,154 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Book Appointment</title>
   <style>
     body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
-}
-
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: white;
-  border-bottom: 1px solid #ddd;
-}
-
-.logo {
-  font-weight: bold;
-  color: #1f4e8c;
-  font-size: 20px;
-}
-
-.nav-buttons button {
-  margin-left: 10px;
-  padding: 8px 15px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}
-
-.nav-buttons .primary {
-  background: #1f4e8c;
-  color: white;
-  border: none;
-}
-
-/* Layout */
-.container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-h2 {
-  color: #1f4e8c;
-}
-
-/* Box */
-.booking-box {
-  display: flex;
-  gap: 30px;
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-/* Calendar */
-.calendar {
-  flex: 1;
-}
-
-.calendar h3 {
-  text-align: center;
-}
-
-.days, .dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-}
-
-.days span {
-  font-weight: bold;
-}
-
-.dates span {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.dates span:hover {
-  background: #e6ecf5;
-}
-
-/* Selected date */
-.dates .active {
-  background: #1f4e8c;
-  color: white;
-}
-
-/* Time */
-.times {
-  flex: 1;
-}
-
-.time-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.time-grid button {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.time-grid button:hover {
-  background: #e6ecf5;
-}
-
-/* Selected time */
-.time-grid .active {
-  background: #28a745;
-  color: white;
-  border: none;
-}
-
-/* Confirm */
-.confirm {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.confirm button {
-  background: #1f4e8c;
-  color: white;
-  padding: 14px 40px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    }
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    }
+    .logo {
+    font-weight: bold;
+    color: #1f4e8c;
+    font-size: 20px;
+    }
+  
+    .nav-buttons button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    }
+    .nav-buttons .primary {
+    background: #1f4e8c;
+    color: white;
+    border: none;
+    }
+    .container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    }
+    h2 {
+      color: #1f4e8c;
+    }
+    .booking-box {
+      display: flex;
+      gap: 30px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .calendar {
+      flex: 1;
+    }
+    .calendar h3 {
+      text-align: center;
+    }
+    .days, .dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+    }
+    .days span {
+      font-weight: bold;
+    }
+    .dates span {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .dates span:hover {
+      background: #e6ecf5;
+    }
+    .dates .active {
+      background: #1f4e8c;
+      color: white;
+    }
+    .times {
+      flex: 1;
+    }
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .time-grid button {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .time-grid button:hover {
+      background: #e6ecf5;
+    }
+    .time-grid .active {
+      background: #28a745;
+      color: white;
+      border: none;
+    }
+    .confirm {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .confirm button {
+      background: #1f4e8c;
+      color: white;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
   </style>
 </head>
+  
 <body>
-
-<!-- Header -->
 <header>
   <div class="logo">Harborview Medical Group</div>
   <div class="nav-buttons">
@@ -157,22 +127,14 @@ h2 {
     <button>History</button>
   </div>
 </header>
-
-<!-- Main -->
 <section class="container">
-
   <h2>Select Date & Time</h2>
-
   <div class="booking-box">
-
-    <!-- Calendar -->
     <div class="calendar">
       <h3>April 2026</h3>
-
       <div class="days">
         <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
       </div>
-
       <div class="dates">
         <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span>
         <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
@@ -181,11 +143,8 @@ h2 {
         <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
       </div>
     </div>
-
-    <!-- Time -->
     <div class="times">
       <h3>Available Time Slots</h3>
-
       <div class="time-grid">
         <button>9:00 AM</button>
         <button>10:00 AM</button>
@@ -194,11 +153,7 @@ h2 {
         <button>2:00 PM</button>
         <button>3:00 PM</button>
       </div>
-
-    </div>
-
   </div>
-
   <div class="confirm">
     <button id="confirmBtn">Confirm Appointment</button>
   </div>
@@ -225,7 +180,7 @@ if (service && names[service]) {
 
   document.querySelector(".container").prepend(title);
 }
-    // Select date
+      
 const dates = document.querySelectorAll(".dates span");
 dates.forEach(date => {
   date.addEventListener("click", () => {
@@ -236,7 +191,6 @@ dates.forEach(date => {
   });
 });
 
-// Select time
 const times = document.querySelectorAll(".time-grid button");
 times.forEach(time => {
   time.addEventListener("click", () => {
@@ -245,7 +199,6 @@ times.forEach(time => {
   });
 });
 
-// Confirm button
 document.getElementById("confirmBtn").addEventListener("click", () => {
   const selectedDate = document.querySelector(".dates .active");
   const selectedTime = document.querySelector(".time-grid .active");
