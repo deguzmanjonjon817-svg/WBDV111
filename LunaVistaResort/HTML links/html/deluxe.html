@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deluxe Room Selection</title>
+        <style>
+        body {
+            margin:0;
+            padding:0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
+
+        /* Container for all rooms */
+        .rooms-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Individual room card */
+        .room-card {
+            display: flex;
+            flex-direction: row;
+            border: 3px solid white;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.05);
+            position: relative;
+            padding: 20px;
+            gap: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.3);
+        }
+
+        /* Left image */
+        .room-image {
+            flex: 1;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Right info */
+        .room-info {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        .room-info h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .room-info p {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Book button */
+        .book-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 25px;
+            background: black;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background: white;
+            color: black;
+        }
+        </style>
+    </head>
+<body>
+
+<div class="rooms-container">
+
+  <!-- Deluxe Room 1 -->
+  <div class="room-card">
+      <div class="room-image">
+          <img src="d1.webp" alt="Deluxe Room 1">
+      </div>
+      <div class="room-info">
+          <h2>Deluxe King Room</h2>
+          <p>
+              A spacious room featuring a comfortable king-sized bed, modern interior design, and a private balcony with a relaxing view of the surroundings. The room includes a fully stocked minibar, flat-screen TV, air conditioning, and high-speed Wi-Fi. Ideal for couples or solo travelers who want extra comfort and a peaceful place to relax during their stay.
+          </p>
+      </div>
+      <button class="book-btn" onclick="window.location.href='booking.html?room=Deluxe1'">Book</button>
+  </div>
+
+  <!-- Deluxe Room 2 -->
+  <div class="room-card">
+      <div class="room-image">
+          <img src="d2.jpg" alt="Deluxe Room 2">
+      </div>
+      <div class="room-info">
+          <h2>Deluxe Twin Room</h2>
+          <p>
+              A well-designed deluxe room with two separate single beds, perfect for friends, colleagues, or travel companions. It features large windows for natural light, a work desk, flat-screen television, minibar, and complimentary Wi-Fi. Guests can enjoy a comfortable and convenient stay with modern amenities and a cozy atmosphere.
+          </p>
+      </div>
+      <button class="book-btn" onclick="window.location.href='booking.html?room=Deluxe2'">Book</button>
+  </div>
+
+  <!-- Deluxe Room 3 -->
+  <div class="room-card">
+      <div class="room-image">
+          <img src="d3.jpg" alt="Deluxe Room 3">
+      </div>
+      <div class="room-info">
+          <h2>Deluxe Double Room</h2>
+          <p>
+              This elegant room offers a large double bed, stylish furnishings, and a comfortable seating area for relaxation. Guests can enjoy amenities such as air conditioning, a minibar, coffee and tea making facilities, a flat-screen TV, and free Wi-Fi. Perfect for couples or small groups looking for a balance of comfort, space, and affordability.
+          </p>
+      </div>
+      <button class="book-btn" onclick="window.location.href='booking.html?room=Deluxe3'">Book</button>
+  </div>
+
+  <!-- Deluxe Room 4 -->
+  <div class="room-card">
+      <div class="room-image">
+          <img src="d4.webp" alt="Deluxe Room 4">
+      </div>
+      <div class="room-info">
+          <h2>Deluxe Family Room</h2>
+          <p>
+              A larger deluxe room designed for families, featuring multiple beds and a spacious layout to comfortably accommodate several guests. The room includes a seating area, minibar, air conditioning, entertainment system, and free high-speed Wi-Fi. Ideal for families or groups who want to stay together while enjoying modern comfort and convenience.
+          </p>
+      </div>
+      <button class="book-btn" onclick="window.location.href='booking.html?room=Deluxe4'">Book</button>
+  </div>
+
+</div>
+
+</body>
+</html>
