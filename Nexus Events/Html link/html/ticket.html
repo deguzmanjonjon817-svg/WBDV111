@@ -233,7 +233,6 @@
         document.querySelectorAll('button[data-ticket], .big-buy[data-ticket]').forEach(btn => {
             btn.addEventListener('click', () => {
                 const ticket = btn.getAttribute('data-ticket');
-                // Redirect to info.html with ticket info
                 window.location.href = `info.html?ticket=${encodeURIComponent(ticket)}`;
             });
         });
