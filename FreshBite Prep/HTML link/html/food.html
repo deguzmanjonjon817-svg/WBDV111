@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            body {
+                background: #7C5A41;
+            }
+            .header {
+                margin-left:270px;
+                padding:20px;
+            }
+            .diet-buttons {
+                margin-bottom:50px;
+            }
+            .diet-buttons button {
+                padding:15px 25px;
+                border:1px solid #ccc;
+                background:#ffffff;
+                color:solid black;
+                border-radius:6px;
+                cursor:pointer;
+                margin-right:10px;
+            }
+            .diet-buttons .active{
+                background:#3B2E2E;
+                color:white;
+            }
+            .meals{
+                display:flex;
+                gap:25px;
+            }
+            .card{
+                width:220px;
+                border:1px solid black;
+                border-radius:8px;
+                padding:10px;
+                background:#A68B7B;
+                text-align:center;
+                color: #000000;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 10px 20px rgba(0,0,0,0.3); 
+            }
+            .card img{
+                width:100%;
+                border-radius:6px;
+            }
+            .card button{
+                margin-top:10px;
+                padding:8px 15px;
+                background:#3B2E2E;
+                border:none;
+                color:white;
+                border-radius:5px;
+                cursor:pointer;
+                transition: background 0.3s, transform 0.2s;
+            }
+            .card button:hover {
+                background: #333333; 
+                transform: scale(1.05);
+            }
+            .sidebar{
+                width: 250px;
+                height: 100vh;
+                background: #533838;
+                padding-top: 40px;
+                position: fixed;
+                border-radius: 10px;
+                top:0;
+                left:0;
+
+                margin:0;
+            }
+            .menu{
+                display:block;
+                color:white;
+                text-decoration:none;
+                padding:18px 25px;
+                font-size:18px;
+                border-bottom:1px solid rgba(255,255,255,0.1);
+            }
+            .menu:hover{
+                background:#3f1c1c;
+                color:rgb(241, 241, 241);
+            }
+            .bottom{
+                position:absolute;
+                bottom:50px;
+                width:100%;
+            }
+            .drawer{
+                height:100%;
+                width:0;
+                position:fixed;
+                top:0;
+                right:0;
+                background:#533838;
+                color:white;
+                overflow-x:hidden;
+                transition:0.4s;
+                padding-top:60px;
+                z-index:1000;
+            }
+            .drawer h1 {
+                margin-left:20px;
+                text-align: center;
+                padding-right: 60px;
+            }
+            .drawer input{
+                width:80%;
+                padding:10px;
+                margin:10px;
+                border:none;
+                border-radius:5px;
+            }
+            .drawer button{
+                padding:10px 20px;
+                margin:10px;
+                background:rgb(0, 0, 0);
+                border:none;
+                color:white;
+                border-radius:5px;
+                cursor:pointer;
+            }
+            .closebtn{
+                position:absolute;
+                top:10px;
+                right:20px;
+                font-size:30px;
+                cursor:pointer;
+            }
+            .login-btn{
+                background:#533838;
+                color:white;
+                border:none;
+                padding:10px 15px;
+                border-radius:5px;
+                cursor:pointer;
+                float:right;
+                margin-right:20px;
+                transition: background 0.3s, transform 0.2s;
+            }
+            .login-btn:hover {
+                background: #333333; 
+                transform: scale(1.05);
+            }
+
+            .login-btn:active {
+                transform: scale(0.95); 
+            }
+        </style>
+    </head>
+    <body>
+       <div class="header">
+            <button class="login-btn" onclick="openLogin()">Login</button>
+            <h1>Select Your Diet Plan</h1>
+            <div class="diet-buttons">
+                <button class="active">Balanced</button>
+                <button>Keto</button>
+                <button>Vegan</button>
+            </div>
+            <h2>Choose Your Weekly Meals</h2>
+            <div class="meals">
+                <div class="card">
+                    <img src="pic1.webp">
+                    <h3>Grilled Chicken & Veggies</h3>
+                    <p>450 Cal - 38g Protein</p>
+                    <button>Select Meal</button>
+                </div>
+                <div class="card">
+                    <img src="pic2.jpg">
+                    <h3>Steak & Sweet Potatoes</h3>
+                    <p>500 Cal - 40g Protein</p>
+                    <button>Select Meal</button>
+                </div>
+                <div class="card">
+                    <img src="pic3.webp">
+                    <h3>Salmon & Quinoa</h3>
+                    <p>480 Cal - 35g Protein</p>
+                    <button>Select Meal</button>
+                </div>
+                <div class="card">
+                    <img src="pic4.jpg">
+                    <h3>Salisbury Steak</h3>
+                    <p>450 Cal - 28g Protein</p>
+                    <button>Select Meal</button>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <a href="#" class="menu">🏠 Dashboard </a>
+            <a href="#" class="menu">🍽 Meals</a>
+            <a href="#" class="menu">💳 Billing</a>
+            <a href="#" class="menu">📄 Plans</a>
+            <div class="bottom">
+                <a href="#" class="menu">ℹ Info</a>
+            </div>
+        </div>
+            <div id="loginDrawer" class="drawer">
+            <span class="closebtn" onclick="closeLogin()">×</span>
+            <h1>Login</h1>
+            <input type="text" placeholder="Email"><br>
+            <input type="password" placeholder="Password"><br>
+            <button>Login</button>
+        </div>
+        <script>
+            function openLogin() {
+                document.getElementById("loginDrawer").style.width = "300px";}
+            function closeLogin() {
+                document.getElementById("loginDrawer").style.width = "0";}
+        </script>
+    </body>
+</html>
