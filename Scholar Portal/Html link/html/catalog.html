@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BSIT Course Catalog</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: #c9a97f;
+        }
+
+        /* HEADER */
+        .header {
+            background: #2f6fa5;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+        .nav a {
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            opacity: 0.85;
+        }
+
+        .nav button {
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .courses { background: #4caf50; }
+        .register { background: #ff9800; }
+        .profile { background: #e91e63; }
+
+        /* TITLE */
+        .title {
+            text-align: center;
+            color: #2f6fa5;
+            margin: 30px 0 20px;
+        }
+
+        /* GRID FIXED 4x4 */
+        .course-grid {
+            width: 80%;
+            flex: 1;
+            gap: 25px;
+            padding: 30px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        /* COURSE CARD */
+        .course-card {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            border-left: 8px solid #4caf50;
+            font-weight: bold;
+            transition: 0.2s;
+            min-height: 120px;
+
+            display: flex;
+            justify-content: center;   /* horizontal center */
+            align-items: center;       /* vertical center */
+            text-align: center;  
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Student Portal</h1>
+
+        <div class="nav">
+            <a href="catalog.html" class="courses">Courses</a>
+            <button class="register">Register</button>
+            <button class="profile">Profile</button>
+        </div>
+    </div>
+
+    <!-- TITLE -->
+    <h2 class="title">Bachelor of Science in Information Technology courses</h2>
+
+    <!-- GRID -->
+    <div class="course-grid">
+
+        <div class="course-card">Critical Reading, Writing and Thinking</div>
+        <div class="course-card">Intermediate Programming w/ Lab</div>
+        <div class="course-card">Mathematics in the Modern World</div>
+        <div class="course-card">Veritas</div>
+
+        <div class="course-card">NSTP 2 - Civic Welfare Training Services</div>
+        <div class="course-card">PATHFit 2: Exercise-Based Fitness Activities</div>
+        <div class="course-card">Purposive Communication</div>
+        <div class="course-card">Web Development w/ Lab</div>
+
+    </div>
+
+</body>
+</html>
