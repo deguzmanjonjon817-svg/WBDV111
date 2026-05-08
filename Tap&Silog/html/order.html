@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background:#0a0a0a;
+        color:white;
+    }
+
+    .header{
+        width:100%;
+        height:90px;
+        background:#000;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:0 8%;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo{
+        display:flex;
+        align-items:center;
+        gap:14px;
+    }
+
+    .logo-box{
+        width:45px;
+        height:45px;
+        background:white;
+        color:black;
+        border-radius:10px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:bold;
+        font-size:28px;
+    }
+
+    .logo h1{
+        font-size:22px;
+    }
+
+    .checkout-container{
+        width:100%;
+        min-height:100vh;
+        padding:50px 8%;
+        display:grid;
+        grid-template-columns:1.2fr 0.8fr;
+        gap:35px;
+    }
+
+    .checkout-box,
+    .summary-box{
+        background:#111;
+        border-radius:24px;
+        padding:35px;
+        border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .section-title{
+        font-size:32px;
+        margin-bottom:30px;
+    }
+
+    .form-group{
+        margin-bottom:20px;
+    }
+
+    .form-group label{
+        display:block;
+        margin-bottom:10px;
+        color:#d0d0d0;
+        font-size:15px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select{
+        width:100%;
+        padding:16px;
+        background:#1b1b1b;
+        border:none;
+        border-radius:14px;
+        color:white;
+        font-size:15px;
+        outline:none;
+    }
+
+    .form-row{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:16px;
+    }
+
+    textarea{
+        resize:none;
+        height:120px;
+    }
+
+    .order-item{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:16px 0;
+        border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .order-item h3{
+        font-size:17px;
+    }
+
+    .order-item p{
+        color:#aaa;
+        margin-top:4px;
+        font-size:14px;
+    }
+
+    .price{
+        font-size:18px;
+        font-weight:bold;
+        color:#ffcc70;
+    }
+
+    .total-box{
+        margin-top:25px;
+    }
+
+    .total-row{
+        display:flex;
+        justify-content:space-between;
+        margin-bottom:14px;
+        color:#d0d0d0;
+    }
+
+    .grand-total{
+        font-size:26px;
+        font-weight:bold;
+        color:#ffcc70;
+        margin-top:20px;
+    }
+
+    .place-order-btn{
+        width:100%;
+        padding:18px;
+        border:none;
+        border-radius:16px;
+        background:white;
+        color:black;
+        font-size:17px;
+        font-weight:bold;
+        cursor:pointer;
+        margin-top:30px;
+        transition:0.3s;
+    }
+
+    .place-order-btn:hover{
+        transform:translateY(-3px);
+    }
+
+    .payment-methods{
+        display:flex;
+        gap:15px;
+        margin-top:10px;
+        flex-wrap:wrap;
+    }
+
+    .payment-card{
+        flex:1;
+        min-width:120px;
+        background:#1a1a1a;
+        padding:16px;
+        border-radius:14px;
+        border:1px solid rgba(255,255,255,0.06);
+        text-align:center;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .payment-card:hover{
+        border-color:white;
+    }
+
+    .payment-card i{
+        font-size:24px;
+        margin-bottom:10px;
+    }
+
+    @media(max-width:900px){
+
+        .checkout-container{
+            grid-template-columns:1fr;
+        }
+
+        .form-row{
+            grid-template-columns:1fr;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-box">S</div>
+            <h1>TAP&SILOG</h1>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+    <div class="checkout-box">
+        <h2 class="section-title">Delivery Details</h2>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Enter last name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" placeholder="09XXXXXXXXX">
+        </div>
+        <div class="form-group">
+            <label>Delivery Address</label>
+            <textarea placeholder="Street, Barangay, City"></textarea>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Delivery Type</label>
+                <select>
+                    <option>Standard Delivery</option>
+                    <option>Express Delivery</option>
+                    <option>Pickup</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Payment Method</label>
+                <select>
+                    <option>Cash on Delivery</option>
+                    <option>GCash</option>
+                    <option>Maya</option>
+                    <option>Credit/Debit Card</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Order Notes</label>
+            <textarea placeholder="Extra rice, no onions, less spicy, etc."></textarea>
+        </div>
+        <div class="payment-methods">
+            <div class="payment-card">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <p>Cash</p>
+            </div>
+            <div class="payment-card">
+                <i class="fa-solid fa-wallet"></i>
+                <p>GCash</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-box">
+        <h2 class="section-title">Order Summary</h2>
+        <div class="order-item">
+            <div>
+                <h3>Tapsilog</h3>
+                <p>Quantity: 1</p>
+            </div>
+            <div class="price">₱99</div>
+        </div>
+        <div class="order-item">
+            <div>
+                <h3>Sprite</h3>
+                <p>Quantity: 1</p>
+            </div>
+            <div class="price">₱40</div>
+        </div>
+        <div class="total-box">
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span>₱139</span>
+            </div>
+            <div class="total-row">
+                <span>Delivery Fee</span>
+                <span>₱49</span>
+            </div>
+            <div class="total-row">
+                <span>Service Fee</span>
+                <span>₱10</span>
+            </div>
+            <div class="grand-total">
+                Total: ₱198
+            </div>
+        </div>
+        <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+    </div>
+    </div>
+
+    <script>
+        function placeOrder(){
+            alert("Order placed successfully!");
+            window.location.href = "home.html";
+        }
+    </script>
+
+</body>
+</html>

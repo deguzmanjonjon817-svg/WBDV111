@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+      min-height:100vh;
+      overflow:hidden;
+    }
+
+    .login-page{
+      display:flex;
+      width:100%;
+      height:100vh;
+    }
+
+    .hero{
+      width:55%;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.78)),
+        url("pic1.jpg");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      padding:80px;
+      position:relative;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.15);
+      backdrop-filter:blur(1px);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:600px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:50px;
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(10px);
+      margin-bottom:25px;
+      font-size:14px;
+      letter-spacing:1px;
+    }
+
+    .hero h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:22px;
+      font-weight:800;
+    }
+
+    .hero p{
+      font-size:22px;
+      color:#d7d7d7;
+      margin-bottom:35px;
+      line-height:1.6;
+    }
+
+    .order-now-btn{
+      padding:18px 40px;
+      border:none;
+      border-radius:14px;
+      background:white;
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .order-now-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 25px rgba(255,255,255,0.2);
+    }
+
+    .login-side{
+      width:45%;
+      background:#0d0d0d;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .login-box{
+      width:100%;
+      max-width:430px;
+      background:#141414;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:28px;
+      padding:45px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:35px;
+    }
+
+    .logo-box{
+      width:50px;
+      height:50px;
+      background:white;
+      color:black;
+      border-radius:12px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .logo h2{
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .login-title{
+      font-size:38px;
+      margin-bottom:10px;
+      font-weight:800;
+    }
+
+    .login-subtitle{
+      color:#a8a8a8;
+      margin-bottom:35px;
+      line-height:1.5;
+    }
+
+    .input-group{
+      margin-bottom:22px;
+    }
+
+    .input-group label{
+      display:block;
+      margin-bottom:10px;
+      font-size:15px;
+      color:#d7d7d7;
+    }
+
+    .input-box{
+      position:relative;
+    }
+
+    .input-box i{
+      position:absolute;
+      left:18px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#8a8a8a;
+      font-size:16px;
+    }
+
+    .input-box input{
+      width:100%;
+      height:58px;
+      background:#1c1c1c;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:0 20px 0 50px;
+      color:white;
+      font-size:16px;
+      outline:none;
+      transition:0.3s;
+    }
+
+    .input-box input:focus{
+      border-color:white;
+      box-shadow:0 0 0 4px rgba(255,255,255,0.05);
+    }
+
+    .login-btn{
+      width:100%;
+      height:58px;
+      border:none;
+      border-radius:14px;
+      background:white;
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      margin-top:10px;
+      transition:0.3s;
+    }
+
+    .login-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 25px rgba(255,255,255,0.12);
+    }
+
+    .extra{
+      margin-top:25px;
+      text-align:center;
+      color:#9a9a9a;
+      font-size:15px;
+    }
+
+    .extra a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    @media(max-width:1000px){
+      body{
+        overflow:auto;
+      }
+      .login-page{
+        flex-direction:column;
+        height:auto;
+      }
+      .hero{
+        width:100%;
+        min-height:500px;
+      }
+      .login-side{
+        width:100%;
+        padding:50px 20px;
+      }
+      .hero h1{
+        font-size:52px;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero{
+        padding:40px 25px;
+      }
+      .hero h1{
+        font-size:42px;
+      }
+      .hero p{
+        font-size:18px;
+      }
+      .login-box{
+        padding:30px;
+      }
+    }
+
+    .flip-card {
+        width:100%;
+        max-width:430px;
+        height:720px;
+        perspective:1500px;
+    }
+
+    .flip-card-inner{
+        width:100%;
+        height:100%;
+        position:relative;
+        transition:transform 0.8s;
+        transform-style:preserve-3d;
+    }
+
+    .flip-card-inner.flipped{
+        transform:rotateY(180deg);
+      }
+      .flip-front,
+      .flip-back{
+      position:absolute;
+      width:100%;
+      height:100%;
+      backface-visibility:hidden;
+    }
+
+    .flip-back{
+    transform:rotateY(180deg);
+    }
+
+    .login-box{
+    width:100%;
+    height:100%;
+    background:#141414;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:28px;
+    padding:45px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden;
+    }
+
+    .login-title{
+    font-size:38px;
+    margin-bottom:10px;
+    font-weight:800;
+    }
+
+    .login-subtitle{
+    color:#a8a8a8;
+    margin-bottom:28px;
+    line-height:1.5;
+    }
+
+    .input-group{
+    margin-bottom:18px;
+    }
+
+    .input-box input{
+    width:100%;
+    height:56px;
+    }
+
+    .login-btn{
+    margin-top:8px;
+    }
+
+    .extra{
+    margin-top:22px;
+    text-align:center;
+    color:#9a9a9a;
+    font-size:15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-page">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">🔥 Open Late Night</div>
+        <h1>Hot Silog,<br>Fresh Off The Grill</h1>
+        <p>Authentic street food flavors delivered to your door in a minutes.</p>
+      </div>
+    </section>
+
+    <div class="login-side">
+        <div class="flip-card">
+            <div class="flip-card-inner" id="flip-card-inner">
+            <div class="login-box flip-front">
+                <div class="logo">
+                  <div class="logo-box">S</div>
+                  <h2>TAP&SILOG</h2>
+                </div>
+
+                <h1 class="login-title">Welcome Back</h1>
+                <p class="login-subtitle">Login to continue ordering your favorite silog meals.</p>
+
+                <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <button class="login-btn" type="submit">Login</button>
+                </form>
+
+                <div class="extra">Don’t have an account?<a href="#" onclick="flipToSignup(event)">Sign Up</a>
+              </div>
+            </div>
+
+            <div class="login-box flip-back">
+                <div class="logo">
+                  <div class="logo-box">S</div>
+                  <h2>TAP&SILOG</h2>
+                </div>
+
+                <h1 class="login-title">Create Account</h1>
+                <p class="login-subtitle">Sign up and start ordering delicious meals online.</p>
+
+                <form onsubmit="handleSignup(event)">
+                <div class="input-group">
+                  <label>Full Name</label>
+                  <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Enter your full name">
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <label>Email Address</label>
+                  <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <label>Password</label>
+                  <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Create password" required>
+                  </div>
+                </div>
+
+                <button class="login-btn" type="submit">Sign Up</button>
+                </form>
+
+              <div class="extra">
+                Already have an account?
+                <a href="#" onclick="flipToLogin(event)">Login</a>
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+  <script>
+    function flipToSignup(event) {
+    event.preventDefault();
+    document.getElementById("flip-card-inner").classList.add("flipped");
+    }
+    function flipToLogin(event) {
+        event.preventDefault();
+        document.getElementById("flip-card-inner").classList.remove("flipped");
+    }
+  </script>
+  <script>
+    function flipToSignup(event) {
+      event.preventDefault();
+      document.getElementById("flip-card-inner").classList.add("flipped");
+    }
+    function flipToLogin(event) {
+      event.preventDefault();
+      document.getElementById("flip-card-inner").classList.remove("flipped");
+    }
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("login-email").value;
+      if (email.endsWith("@admin.com")) {
+        window.location.href = "admin.html";
+      }
+
+      else if (email.endsWith("@gmail.com")) {
+        window.location.href = "home.html";
+      }
+
+      else {
+        alert("Please use a valid gmail.com or admin.com email.");
+      }
+    }
+
+    function handleSignup(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("signup-email").value;
+      
+      if (email.endsWith("@gmail.com")) {
+        alert("Account created successfully!");
+        window.location.href = "home.html";
+      } else {
+        alert("Sign up requires a gmail.com email.");
+      }
+    }
+  </script>
+</body>
+</html>

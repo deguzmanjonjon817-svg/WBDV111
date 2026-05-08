@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+    }
+
+    .header{
+      width:100%;
+      height:100px;
+      background:#000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 12%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .logo-box{
+      width:50px;
+      height:50px;
+      background:white;
+      color:black;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:32px;
+      font-weight:bold;
+    }
+
+    .logo h1{
+      color:white;
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .nav{
+      display:flex;
+      gap:50px;
+    }
+
+    .nav a{
+      color:#d7d7d7;
+      text-decoration:none;
+      font-size:20px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .nav a:hover{
+      color:white;
+    }
+
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:30px;
+    }
+
+    .login-btn{
+      padding:12px 28px;
+      border:1px solid rgba(255,255,255,0.7);
+      background:transparent;
+      color:white;
+      border-radius:14px;
+      font-size:18px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .login-btn:hover{
+      background:white;
+      color:black;
+    }
+
+    .cart{
+      position:relative;
+      color:white;
+      font-size:28px;
+      cursor:pointer;
+    }
+
+    .cart span{
+      position:absolute;
+      top:-10px;
+      right:-12px;
+      background:#ff5a5a;
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:bold;
+    }
+
+    .hero{
+      height:100vh;
+      margin-top:100px;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+        url("pic1.jpg");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center; 
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:50px;
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(10px);
+      margin-bottom:25px;
+      font-size:14px;
+      letter-spacing:1px;
+    }
+
+    .hero h1{
+      font-size:75px;
+      font-weight:800;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      font-size:24px;
+      color:#ddd;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      padding:18px 45px;
+      border:none;
+      border-radius:14px;
+      font-size:22px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 25px rgba(255,255,255,0.2);
+    }
+
+    .menu-section{
+      padding:100px 9%;
+    }
+
+    .section-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:35px;
+    }
+
+    .section-header h2{
+      font-size:48px;
+    }
+
+    .view-all{
+      color:#ccc;
+      text-decoration:none;
+      font-size:20px;
+    }
+
+    .carousel-container{
+      position:relative;
+      width:100%;
+      max-width:1000px;
+      margin:auto;
+      overflow:hidden;
+      border-radius:25px;
+      margin-bottom:60px;
+    }
+
+    .carousel{
+      display:flex;
+      transition:transform 0.5s ease-in-out;
+    }
+
+    .slide{
+      min-width:100%;
+      position:relative;
+    }
+
+    .slide img{
+      width:100%;
+      height:500px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .slide-content{
+      position:absolute;
+      bottom:40px;
+      left:40px;
+      background:rgba(0,0,0,0.6);
+      padding:20px 25px;
+      border-radius:18px;
+    }
+
+    .slide-content h3{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+
+    .slide-content p{
+      font-size:22px;
+      color:#ddd;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.6);
+      border:none;
+      color:white;
+      font-size:35px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      cursor:pointer;
+      z-index:10;
+      transition:0.3s;
+    }
+
+    .arrow:hover{
+      background:white;
+      color:black;
+    }
+
+    .left{
+      left:20px;
+    }
+
+    .right{
+      right:20px;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#111;
+      border-radius:22px;
+      overflow:hidden;
+      transition:0.35s ease;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 15px 35px rgba(255,255,255,0.12);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:22px;
+    }
+
+    .card-content h3{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .price{
+      font-size:24px;
+      font-weight:bold;
+      color:#ffcc70;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:50px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .slide img{
+        height:350px;
+      }
+
+      .slide-content h3{
+        font-size:28px;
+      }
+
+      .slide-content p{
+        font-size:16px;
+      }
+
+      .section-header h2{
+        font-size:34px;
+      }
+    }
+
+    .section{
+      display:none;
+      padding:120px 8% 60px;
+    }
+
+    .section.active{
+      display:block;
+    }
+
+    #cart-items{
+      margin-top:20px;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+    }
+
+    .cart-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#111;
+      padding:15px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .cart-item button{
+      background:#ff4d4d;
+      border:none;
+      color:white;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    #total{
+      margin-top:25px;
+      font-size:26px;
+      font-weight:bold;
+      color:#ffcc70;
+      text-align:right;
+    }
+
+    .products button{
+      cursor:pointer;
+      transition:0.2s;
+    }
+
+    .products button:hover{
+      transform:scale(1.1);
+      opacity:0.9;
+    }
+
+    #cart-sidebar{
+      position:fixed;
+      top:0;
+      right:-400px;
+      width:380px;
+      height:100vh;
+      background:#0f0f0f;
+      z-index:2000;
+      padding:20px;
+      transition:0.3s ease;
+      display:flex;
+      flex-direction:column;
+    }
+
+    #cart-sidebar.active{
+      right:0;
+    }
+
+    #cart-overlay{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.6);
+      display:none;
+      z-index:1500;
+    }
+
+    #cart-overlay.active{
+      display:block;
+    }
+
+    .cart-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .close-btn{
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    #cart-items{
+      flex:1;
+      overflow-y:auto;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+    }
+
+    .cart-item{
+      background:#1a1a1a;
+      padding:12px;
+      border-radius:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .cart-item button{
+      background:red;
+      border:none;
+      color:white;
+      padding:6px 10px;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .cart-footer{
+      padding-top:15px;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    #total{
+      color:#ffcc70;
+      font-size:22px;
+      text-align:right;
+    }
+
+    .products button{
+      cursor:pointer;
+    }
+
+    .order-btn{
+      margin-top:5px;
+      padding:14px;
+      width:100%;
+      background:#ffcc70;
+      border:none;
+      border-radius:12px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.2s;
+    }
+
+    .order-btn:hover{
+      transform:scale(1.03);
+    }
+
+    .cart-footer{
+      padding-top:15px;
+      border-top:1px solid rgba(255,255,255,0.1);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    #total{
+      color:#ffcc70;
+      font-size:22px;
+      text-align:left;
+      width:100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cart-overlay" onclick="closeCart()"></div>
+    <div id="cart-sidebar">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <span onclick="closeCart()" class="close-btn">✖</span>
+      </div>
+      <div id="cart-items"></div>
+      <button class="order-btn" onclick="window.location.href='login.html'">Order Now</button>
+      <div class="cart-footer">
+        <h3 id="total">Total: ₱0</h3>
+      </div>
+  </div>
+
+  <header class="header">
+    <div class="logo">
+      <div class="logo-box">S</div>
+      <h1>TAP&SILOG</h1>
+    </div>
+
+    <nav class="nav">
+      <a href="home.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-right">
+      
+      <div class="cart" onclick="openCart()">🛒<span id="cart-count">0</span></div>
+    </div>
+  </header>
+  
+  <section class="menu-section">
+    <div class="section-header"><h2>🔥 Trending Now</h2></div>
+
+    <div class="carousel-container">
+      <button class="arrow left" onclick="prevSlide()">❮</button>
+      <div class="carousel" id="carousel">
+
+        <div class="slide">
+          <img src="food1.jpg" alt="Tapsilog">
+          <div class="slide-content">
+            <h3>Tapsilog</h3>
+            <p>₱99</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="food7.jpg" alt="Porksilog">
+          <div class="slide-content">
+            <h3>Porksilog</h3>
+            <p>₱99</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="food2.jpg" alt="Tocilog">
+          <div class="slide-content">
+            <h3>Tocilog</h3>
+            <p>₱99</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="food8.jpg" alt="Sisigsilog">
+          <div class="slide-content">
+            <h3>Sisigsilog</h3>
+            <p>₱90</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="arrow right" onclick="nextSlide()">❯</button>
+
+    </div>
+
+    <div class="section-header">
+      <h2>Silog Meals</h2>
+    </div>
+
+    <div class="products">
+      <div class="card">
+      <img src="food1.jpg" alt="Tapsilog">
+      <div class="card-content">
+        <h3>Tapsilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱99</div>
+          <button 
+            onclick="addToCart('Tapsilog', 99)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food2.jpg" alt="Tocilog">
+      <div class="card-content">
+        <h3>Tocilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱99</div>
+          <button 
+            onclick="addToCart('Tocilog', 99)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food7.jpg" alt="Porksilog">
+      <div class="card-content">
+        <h3>Porksilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱99</div>
+          <button 
+            onclick="addToCart('Porksilog', 99)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food9.webp" alt="Chicksilog">
+      <div class="card-content">
+        <h3>Chicksilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱90</div>
+          <button 
+            onclick="addToCart('Chicksilog', 90)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food8.jpg" alt="Sisigsilog">
+      <div class="card-content">
+        <h3>Sisigsilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱90</div>
+          <button 
+            onclick="addToCart('Sisigsilog', 90)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food4.jpg" alt="Bangsilog">
+      <div class="card-content">
+        <h3>Bangsilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱80</div>
+          <button 
+            onclick="addToCart('Bangsilog', 80)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food10.jpg" alt="Hungariansilog">
+      <div class="card-content">
+        <h3>Hungariansilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱80</div>
+          <button 
+            onclick="addToCart('Hungariansilog', 80)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food11.jpg" alt="Shanghaisilog">
+      <div class="card-content">
+        <h3>Shanghaisilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱75</div>
+          <button 
+            onclick="addToCart('Shanghaisilog', 75)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="foodu.jpg" alt="Cornsilog">
+      <div class="card-content">
+        <h3>Cornsilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱80</div>
+          <button 
+            onclick="addToCart('Cornsilog', 80)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food3.png" alt="Longsilog">
+      <div class="card-content">
+        <h3>Longsilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱70</div>
+          <button 
+            onclick="addToCart('Longsilog', 70)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="fooda.jpg" alt="Hotsilog">
+      <div class="card-content">
+        <h3>Hotsilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱70</div>
+          <button 
+            onclick="addToCart('Hotsilog', 70)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="food5.webp" alt="Spamsilog">
+      <div class="card-content">
+        <h3>Spamsilog</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱70</div>
+          <button 
+            onclick="addToCart('Spamsilog', 70)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="cart" class="section">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <h3 id="total">Total: ₱0</h3>
+        </div>
+        <div class="custom-scroll-track">
+          <div class="custom-scroll-bar"></div>
+        </div>
+    </div>
+
+  <div class="section-header">
+    <h2>Drinks</h2>
+  </div>
+
+  <div class="products">
+    <div class="card">
+      <img src="drinks1.jpg" alt="Coke">
+      <div class="card-content">
+        <h3>Coke</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱40</div>
+          <button 
+            onclick="addToCart('Coke', 40)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="drinks2.jpg" alt="Sprite">
+      <div class="card-content">
+        <h3>Sprite</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱40</div>
+          <button 
+            onclick="addToCart('Sprite', 40)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="drinks3.png" alt="Mountain Dew">
+      <div class="card-content">
+        <h3>Mountain Dew</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱40</div>
+          <button 
+            onclick="addToCart('Mountain Dew', 40)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="drinks4.png" alt="Royal">
+      <div class="card-content">
+        <h3>Royal</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="price">₱40</div>
+          <button 
+            onclick="addToCart('Royal', 40)"
+            style="
+              width:35px;
+              height:35px;
+              border-radius:10px;
+              background:white;
+              color:black;
+              font-size:20px;
+              font-weight:bold;
+            ">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    const carousel = document.getElementById("carousel");
+
+    const slides = document.querySelectorAll(".slide");
+
+    let index = 0;
+
+    function updateCarousel(){
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide(){
+      index++;
+
+      if(index >= slides.length){
+        index = 0;
+      }
+
+      updateCarousel();
+    }
+
+    function prevSlide(){
+      index--;
+
+      if(index < 0){
+        index = slides.length - 1;
+      }
+
+      updateCarousel();
+    }
+
+    setInterval(() => {
+      nextSlide();
+    }, 3000);
+
+  </script>
+
+  <script>
+  let cart = [];
+
+  function openCart(){
+    document.getElementById("cart-sidebar").classList.add("active");
+    document.getElementById("cart-overlay").classList.add("active");
+  }
+  function closeCart(){
+      document.getElementById("cart-sidebar").classList.remove("active");
+      document.getElementById("cart-overlay").classList.remove("active");
+  }
+  function addToCart(name, price) {
+      cart.push({ name, price: Number(price) });
+      updateCart();
+  }
+  function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+  }
+  function formatPeso(amount) {
+      return new Intl.NumberFormat('en-PH', {
+          style: 'currency',
+          currency: 'PHP'
+      }).format(amount);
+  }
+  function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartCount = document.getElementById("cart-count");
+      const totalDisplay = document.getElementById("total");
+
+      cartItems.innerHTML = "";
+
+      let total = 0;
+
+      cart.forEach((item, index) => {
+          total += item.price;
+
+          const div = document.createElement("div");
+          div.classList.add("cart-item");
+
+          div.innerHTML = `
+              <div>
+                <strong>${item.name}</strong><br>
+                ${formatPeso(item.price)}
+              </div>
+              <button onclick="removeFromCart(${index})">X</button>
+          `;
+          cartItems.appendChild(div);
+      });
+      cartCount.textContent = cart.length;
+      totalDisplay.textContent = "Total: " + formatPeso(total);
+  }
+  </script>
+</body>
+</html>
